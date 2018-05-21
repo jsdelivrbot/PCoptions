@@ -1,0 +1,49 @@
+.help_banner {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.help_cont {
+    width: 1050px;
+    min-height: 450px;
+    margin: 80px auto;
+    img {
+        width: 120px;
+        height: 120px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+    &>div {
+        width: 320px;
+        height: 200px;
+        float: left;
+        background: #FFFFFF;
+        -webkit-box-shadow: 0 2px 8px 0 #CCCCCC;
+        box-shadow: 0 2px 8px 0 #CCCCCC;
+        text-align: center;
+        cursor: pointer;
+        p {
+            font-family: MicrosoftYaHei;
+            font-size: 18px;
+            color: #333333;
+            letter-spacing: 0;
+        }
+        margin-right:30px;
+        margin-bottom: 30px;
+    }
+    &>div:hover {
+        p {
+            color: #2E86D1;
+        }
+    }
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}

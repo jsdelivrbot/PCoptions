@@ -1,0 +1,111 @@
+<img class='novice_banner' src="assets/img/home/newbie_banner.png" alt="3分钟了解场外个股期权">
+<div class='no_cont'>
+    <h3>什么是场外个股期权？</h3>
+    <p>
+        场外个股期权是以股票为标的物的一种期权形式，主要对应的标的是沪深交易所上市的个股，指在支付一定权利金后，在合约期内享有以约定的价格买入（但非必须买入）个股期权的一种权利
+    </p>
+</div>
+<div class='no_cont'>
+    <h3>什么是权利金？</h3>
+    <p>
+        权利金是期权的买方为获取期权合约所赋予的权利而必须支付的费用，其多少取决于个股期权的价格、行权周期以及名义本金等
+    </p>
+    <p>
+        权利金是实际需要支付的费用，是买入期权可能遭受损失的最高限度（在合约周期内不会追缴权利金、强行平仓等）
+    </p>
+</div>
+<div class='no_cont'>
+    <h3>场外个股期权要素有哪些？</h3>
+    <table>
+        <tr>
+            <td>标得物：沪深交易所上市的个股</td>
+            <td>名义本金：指进行交易的资金数额（也就是玩多大）</td>
+        </tr>
+        <tr>
+            <td>行权周期：1周～12周不等</td>
+            <td>期权性质：看涨期权</td>
+        </tr>
+        <tr>
+            <td>行权价：约定买入股票的价格</td>
+            <td>行权方式：提前行权或到期结算</td>
+        </tr>
+    </table>
+</div>
+<div class='no_cont'>
+    <h3>如何认购场外个股期权？</h3>
+    <p>
+        认购 TIPS
+    </p>
+    <br>
+    <br>
+    <img src="assets/img/home/newbie_img_1.png">
+    <p>
+        行权 TIPS
+    </p>
+    <br>
+    <br>
+    <img src="assets/img/home/newbie_img_2.png">
+</div>
+<div class='no_cont'>
+    <h3>案例对比：投资1000万</h3>
+    <img src="assets/img/home/newbie_img_3.png">
+    <p style="text-align:center">总结：场外个股期权完胜股票和配资</p>
+</div>
+<div class='no_cont'>
+    <h3>场外个股期权的优势</h3>
+    <div>
+        <div>
+            <img src="assets/img/home/home_icon_1.png" alt="">
+            <br>
+            <br>
+            <p>以小博大</p>
+        </div>
+        <div>
+            <img src="assets/img/home/home_icon_2.png" alt="">
+            <br>
+            <br>
+            <p>风险可控</p>
+        </div>
+        <div>
+            <img src="assets/img/home/home_icon_3.png" alt="">
+            <br>
+            <br>
+            <p>高杠杆收益</p>
+        </div>
+        <div>
+            <img src="assets/img/home/home_icon_4.png" alt="">
+            <br>
+            <br>
+            <p>灵活交易</p>
+        </div>
+    </div>
+</div>
+<div class='no_cont no_lastcont'>
+    <h3>平台优势</h3>
+    <div>
+        <div>
+            <img src="assets/img/home/newbie_icon_5.png" alt="">
+            <br>
+            <br>
+            <p>多家股票期权卖方通道，多家询价，按最低费用给客户报价；</p>
+        </div>
+        <div>
+            <img src="assets/img/home/newbie_icon_6.png" alt="">
+            <br>
+            <br>
+            <p>现金交割，行权灵活</p>
+        </div>
+        <div>
+            <img src="assets/img/home/newbie_icon_7.png" alt="">
+            <br>
+            <br>
+            <p>签约后既享便捷的询价、灵活成交、快速的资金到账服务；</p>
+        </div>
+        <div>
+            <img src="assets/img/home/newbie_icon_8.png" alt="">
+            <br>
+            <br>
+            <p>专业股票期权团队，提供专业咨询服务</p>
+        </div>
+    </div>
+</div>

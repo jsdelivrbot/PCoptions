@@ -1,0 +1,18 @@
+.info_title {
+    width: 858px;
+    height: 50px;
+    border-bottom: 1px solid #CCCCCC;
+    margin: 40px 0 0 40px;
+    p {
+        font-family: MicrosoftYaHei-Bold;
+        font-size: 24px;
+        color: #333333;
+        text-align: left;
+        font-weight: 600;
+    }
+}
+
+.self_table {
+    margin: 40px 0 0 40px;
+    width: 860px;
+}

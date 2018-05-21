@@ -1,0 +1,7 @@
+<img class='help_banner' src="assets/img/home/help_banner.png">
+<div class='help_cont clearfix'>
+    <div (click)="goDetail(x.id)" *ngFor='let x of helpData'>
+        <img [src]="x.cover">
+        <p>{{x.title}}</p>
+    </div>
+</div>

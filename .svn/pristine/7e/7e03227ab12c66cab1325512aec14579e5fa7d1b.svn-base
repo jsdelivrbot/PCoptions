@@ -1,0 +1,10 @@
+<div class='download_wrap'>
+    <h4>随身交易 一键投资</h4>
+    <img src="assets/img/download/img_interface.png" class='img1' alt="">
+    <div>
+        <div id="qrcode1"></div>
+        <p>Android扫码下载</p><br>
+        <div id="qrcode2"></div>
+        <p>IOS扫码下载</p>
+    </div>
+</div>

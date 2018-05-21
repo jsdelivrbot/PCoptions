@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~element-angular/theme/index.css";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+p {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -moz-margin-before: 0;
+    -moz-margin-after: 0;
+    -moz-margin-start: 0;
+    -moz-margin-end: 0;
+    -ms-margin-before: 0;
+    -ms-margin-after: 0;
+    -ms-margin-start: 0;
+    -ms-margin-end: 0;
+    -o-margin-before: 0;
+    -o-margin-after: 0;
+    -o-margin-start: 0;
+    -o-margin-end: 0;
+}

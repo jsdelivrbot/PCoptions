@@ -1,0 +1,164 @@
+<div class='list_wrap'>
+    <div class='tabbar'>
+        <div class='active' (click)='tabChoose(5)' [ngClass]="{'active':tabState==5}">
+            <p>已生效</p>
+        </div>
+        <div (click)='tabChoose(6)' [ngClass]="{'active':tabState==6}">
+            <p>持仓</p>
+        </div>
+        <div (click)='tabChoose(3)' [ngClass]="{'active':tabState==3}">
+            <p>已结算</p>
+        </div>
+        <div (click)='tabChoose(4)' [ngClass]="{'active':tabState==4}">
+            <p>已拒绝</p>
+        </div>
+    </div>
+    <div class='cont' *ngIf='tabState==5'>
+        <div class='card' *ngFor="let x of data">
+            <div>
+                <p class='p1'>{{x.stockName}} {{x.stockCode}}</p>
+                <p class='p2'>申购时间：{{x.startDate}}</p>
+                <p class='p3'>单号：{{x.orderId}}</p>
+            </div>
+            <div>
+                <div class='tip color1'>
+                    <span></span>
+                    <p>{{x.holdStatus}}</p>
+                </div>
+                <table>
+                    <tr>
+                        <td>名义本金<em>{{x.principal}}</em></td>
+                        <td>权利金<em style="padding-left:2em;">{{x.expense}}</em></td>
+                        <td>买入价<em>{{x.price}}</em></td>
+                    </tr>
+                    <tr>
+                        <td>行权周期<em>{{x.duration}}</em></td>
+                        <td>到期日期<em>{{x.endDate}}</em></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class='noData' *ngIf='noData'>
+            <img src="assets/img/trade/deal_icon_nothing.png">
+            <p>暂无数据</p>
+        </div>
+    </div>
+    <div class='cont' *ngIf='tabState==6'>
+        <div class='card' *ngFor="let x of data">
+            <div>
+                <p class='p1'>{{x.stockName}} {{x.stockCode}}</p>
+                <p class='p2'>申购时间：{{x.startDate}}</p>
+                <p class='p3'>单号：{{x.orderId}}</p>
+            </div>
+            <div>
+                <div class='tip color1' [ngClass]="{'color2': x.holdStatus=='持仓中','color1': x.holdStatus=='行权中', 'color3':  x.holdStatus=='待行权'}">
+                    <span></span>
+                    <p>{{x.holdStatus}}</p>
+                    <strong [ngClass]="{'font_red': x.income>=0, 'font_green':  x.income<0}">盈亏&nbsp;&nbsp;{{x.income}}</strong>
+                </div>
+                <table>
+                    <tr>
+                        <td>名义本金<em>{{x.principal}}</em></td>
+                        <td>权利金<em style="padding-left:2em;">{{x.expense}}</em></td>
+                        <td>买入价<em>{{x.price}}</em></td>
+                    </tr>
+                    <tr>
+                        <td>行权周期<em>{{x.duration}}</em></td>
+                        <td>到期日期<em>{{x.endDate}}</em></td>
+                        <td>
+                            <el-button type="primary" class='but2' *ngIf="x.holdStatus=='持仓中'" (click)="exercise(x)">行权</el-button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class='noData' *ngIf='noData'>
+            <img src="assets/img/trade/deal_icon_nothing.png">
+            <p>暂无数据</p>
+        </div>
+    </div>
+    <div class='cont' *ngIf='tabState==3'>
+        <div class='card' *ngFor="let x of data">
+            <div>
+                <p class='p1'>{{x.stockName}} {{x.stockCode}}</p>
+                <p class='p2'>申购时间：{{x.startDate}}</p>
+                <p class='p3'>单号：{{x.orderId}}</p>
+            </div>
+            <div>
+                <div class='tip color1' [ngClass]="{'color4': x.holdStatus=='到期结算', 'color1':  x.holdStatus=='自主行权','color5':  x.holdStatus=='强制行权'}">
+                    <span></span>
+                    <p>{{x.holdStatus}}</p>
+                    <strong [ngClass]="{'font_red': x.income>=0, 'font_green':  x.income<0}">盈亏&nbsp;&nbsp;{{x.income}}</strong>
+                </div>
+                <table>
+                    <tr>
+                        <td>名义本金<em>{{x.principal}}</em></td>
+                        <td>权利金<em style="padding-left:2em;">{{x.expense}}</em></td>
+                        <td>买入价<em style="padding-left:2em;">{{x.price}}</em></td>
+                    </tr>
+                    <tr>
+                        <td>卖出价<em style="padding-left:2em;">{{x.sellPrice}}</em></td>
+                        <td>行权周期<em>{{x.duration}}</em></td>
+                        <td>到期日期<em>{{x.endDate}}</em></td>
+                    </tr>
+                    <tr>
+                        <td>结算时间<em>{{x.settleDate}}</em></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class='noData' *ngIf='noData'>
+            <img src="assets/img/trade/deal_icon_nothing.png">
+            <p>暂无数据</p>
+        </div>
+    </div>
+    <div class='cont' *ngIf='tabState==4'>
+        <div class='card' *ngFor="let x of data">
+            <div>
+                <p class='p1'>{{x.stockName}} {{x.stockCode}}</p>
+                <p class='p2'>申购时间：{{x.startDate}}</p>
+                <p class='p3'>单号：{{x.orderId}}</p>
+            </div>
+            <div>
+                <div class='tip color5'>
+                    <span></span>
+                    <p>{{x.holdStatus}}</p>
+                </div>
+                <table>
+                    <tr>
+                        <td>名义本金<em>{{x.principal}}</em></td>
+                        <td>权利金<em style="padding-left:2em;">{{x.expense}}</em></td>
+                        <td>买入价<em>{{x.price}}</em></td>
+                    </tr>
+                    <tr>
+                        <td>行权周期<em>{{x.duration}}</em></td>
+                        <td>到期日期<em>{{x.endDate}}</em></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class='noData' *ngIf='noData'>
+            <img src="assets/img/trade/deal_icon_nothing.png">
+            <p>暂无数据</p>
+        </div>
+    </div>
+
+</div>
+<el-dialog [title]="'操作提示'" [(visible)]="showDialog" [center]="true">
+    <p style="text-align:center;font-weight:bold;font-size:20px">{{tempstr}}</p>
+    <ng-template #footer>
+        <el-button type="primary" (click)="doexercise(false)">取消</el-button>
+        <el-button type="primary" style="background:white;color:#409EFF;" (click)="doexercise(true)">确定</el-button>
+    </ng-template>
+</el-dialog>
+<el-dialog [title]="'操作提示'" [(visible)]="showDialog1" [center]="true">
+    <p style="text-align:center;font-weight:bold;font-size:20px">{{tempstr}}</p>
+    <ng-template #footer>
+        <el-button type="primary" style="background:white;color:#409EFF;" (click)="doexercise(false)">取消</el-button>
+        <el-button type="primary" (click)="doexercise(true)">确定</el-button>
+    </ng-template>
+</el-dialog>

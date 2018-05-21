@@ -1,0 +1,18 @@
+<div class='recharge'>
+    <div class='info_title'>
+        <p>充值</p>
+    </div>
+    <p class='p1'>存入方式</p>
+    <dl>
+        <dt><img src='assets/img/my/yinlian.png'>&nbsp;&nbsp;&nbsp;&nbsp;网银支付</dt>
+    </dl>
+    <div class='input_wrap'>
+        <input type="text" autocomplete="new-password" [(ngModel)]="moneyamount" placeholder="请输入存入金额">
+        <p class='p2'>存入金额:</p>
+        <p class='p3'>元</p>
+    </div>
+    <el-dropdown class='but1' [menu-align]="'left'" [model]="bankData" trigger="hover" [split-button]="true" type="primary" (selected)="handle($event)">
+        {{choose_bank.bankName}}
+    </el-dropdown>
+    <el-button class='nextStep' (click)='sub()' [elDisabled]="!moneyamount" type="primary">下一步</el-button>
+</div>

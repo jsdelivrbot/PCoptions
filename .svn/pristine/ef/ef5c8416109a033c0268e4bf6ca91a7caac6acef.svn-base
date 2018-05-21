@@ -1,0 +1,39 @@
+<div class='payPassword'>
+    <div class='info_title'>
+        <p *ngIf="!globalData.isMentionPassword">设置支付密码</p>
+        <p *ngIf="globalData.isMentionPassword">修改支付密码</p>
+    </div>
+    <div class='form_wrap' *ngIf="!globalData.isMentionPassword">
+        <form [formGroup]="passwordForm" autocomplete="off">
+            <input class='input1' type="password" autocomplete="off" formControlName="drawpassword" placeholder="请输入6位数字密码">
+            <input class='input2' type="password" autocomplete="off" formControlName="confirmpassword" placeholder="请输入确认密码">
+            <p class='p1'>设置密码</p>
+            <p class='p2'>确认密码</p>
+            <el-icon class='icon1' *ngIf="passwordForm.controls.drawpassword.valid && passwordForm.controls.drawpassword.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+            <el-icon class='icon1' *ngIf="!passwordForm.controls.drawpassword.valid && passwordForm.controls.drawpassword.dirty" name="circle-close" style="color:red;"></el-icon>
+            <el-icon class='icon2' *ngIf="passwordForm.controls.confirmpassword.valid && passwordForm.controls.confirmpassword.dirty&&passwordForm.controls.drawpassword.value==passwordForm.controls.confirmpassword.value" name="circle-check" style="color:#51C332;"></el-icon>
+            <el-icon class='icon2' *ngIf="(!passwordForm.controls.confirmpassword.valid||passwordForm.controls.drawpassword.value!=passwordForm.controls.confirmpassword.value)&&passwordForm.controls.confirmpassword.dirty" name="circle-close" style="color:red;"></el-icon>
+            <el-button class='btn' (click)='conformit(passwordForm.value)' [elDisabled]="!passwordForm.valid||submitted||passwordForm.controls.drawpassword.value!=passwordForm.controls.confirmpassword.value" type="primary">确定</el-button>
+        </form>
+    </div>
+    <div class='form_wrap form_wrap1' *ngIf="globalData.isMentionPassword">
+        <form [formGroup]="drawpasswordForm" autocomplete="off">
+            <input class='input1' disabled placeholder="{{globalData.account}}">
+            <input class='input2' type="text" autocomplete="off" formControlName="verify" placeholder="请输入验证码">
+            <input class='input3' type="password" autocomplete="off" formControlName="password" placeholder="请输入新支付密码">
+            <input class='input4' type="password" autocomplete="off" formControlName="confirmpassword" placeholder="请输入确认密码">
+            <p class='p1'>手机号</p>
+            <p class='p2'>验证码</p>
+            <p class='p3'>新支付密码</p>
+            <p class='p4'>确认密码</p>
+            <el-icon class='icon2' *ngIf="drawpasswordForm.controls.verify.valid && drawpasswordForm.controls.verify.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+            <el-icon class='icon2' *ngIf="!drawpasswordForm.controls.verify.valid && drawpasswordForm.controls.verify.dirty" name="circle-close" style="color:red;"></el-icon>
+            <el-icon class='icon3' *ngIf="drawpasswordForm.controls.password.valid && drawpasswordForm.controls.password.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+            <el-icon class='icon3' *ngIf="!drawpasswordForm.controls.password.valid && drawpasswordForm.controls.password.dirty" name="circle-close" style="color:red;"></el-icon>
+            <el-icon class='icon4' *ngIf="drawpasswordForm.controls.confirmpassword.valid && drawpasswordForm.controls.confirmpassword.dirty&&drawpasswordForm.controls.password.value==drawpasswordForm.controls.confirmpassword.value" name="circle-check" style="color:#51C332;"></el-icon>
+            <el-icon class='icon4' *ngIf="(!drawpasswordForm.controls.confirmpassword.valid||drawpasswordForm.controls.password.value!=drawpasswordForm.controls.confirmpassword.value)&&drawpasswordForm.controls.confirmpassword.dirty" name="circle-close" style="color:red;"></el-icon>
+            <el-button class='btn' (click)='modifyDrawPassword(drawpasswordForm.value)' [elDisabled]="!drawpasswordForm.valid||submitted||drawpasswordForm.controls.password.value!=drawpasswordForm.controls.confirmpassword.value" type="primary">确定</el-button>
+            <el-button class='btn2' type="primary" (click)="getVerifyCode(globalData.account);$event.preventDefault();$event.stopPropagation();" [elDisabled]="submitstate">{{verifystate}}</el-button>
+        </form>
+    </div>
+</div>

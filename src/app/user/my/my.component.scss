@@ -1,0 +1,67 @@
+    ._container {
+        width: 1100px;
+        margin: 0 auto;
+        height: 820px;
+        text-align: center;
+        &>div {
+            float: left;
+        }
+        .left_side {
+            width: 160px;
+            height: 100%;
+            border-left: 1px solid #CCCCCC;
+            border-right: 1px solid #CCCCCC;
+            text-align: center;
+            overflow: hidden;
+            .el-menu {
+                border-right: unset;
+            }
+            &>div {
+                width: 100%;
+                height: auto;
+                min-height: 40px;
+                margin-top: 10px;
+                p {
+                    font-family: MicrosoftYaHei;
+                    font-size: 14px;
+                    color: #333333;
+                    letter-spacing: 0;
+                    line-height: 30px;
+                    cursor: pointer;
+                    text-decoration: none;
+                }
+                .active {
+                    background: #2E86D1!important;
+                    color: #FFFFFF!important;
+                }
+                span {
+                    .secActive {
+                        background: #EEEEEE;
+                    }
+                }
+                &>p:nth-child(1) {
+                    font-family: MicrosoftYaHei;
+                    font-size: 18px;
+                    color: #2E86D1;
+                    letter-spacing: 0;
+                    line-height: 40px;
+                    background: white;
+                }
+            }
+            &>div:nth-child(1) {
+                padding-top: 35px;
+                margin-top: 0px;
+            }
+            .el-submenu__title {
+                font-family: MicrosoftYaHei-Bold;
+                font-size: 18px;
+                color: #2E86D1;
+                letter-spacing: 0;
+            }
+        }
+        .right_side {
+            width: 920px;
+            height: 100%;
+            text-align: center;
+        }
+    }

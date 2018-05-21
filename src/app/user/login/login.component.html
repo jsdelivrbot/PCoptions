@@ -1,0 +1,74 @@
+<div class='login_container'>
+    <p><img [src]="globalData.config.logo" style="height:40px;width:40px;"> <strong>{{globalData.config.title}}</strong></p>
+    <div class='self_tab'>
+        <ul>
+            <li (click)='tabChoose(true)' [ngClass]="{'active': tabfirst}">登录</li>
+            <li (click)='tabChoose(false)' [ngClass]="{'active': !tabfirst}">注册</li>
+        </ul>
+    </div>
+    <div class='tab_cont'>
+        <div class='_login' *ngIf='tabfirst'>
+            <form [formGroup]="passwordForm">
+                <input type="text" formControlName="account" placeholder="请输入手机号">
+                <input type="password" formControlName="password" placeholder="请输入密码">
+                <input type="text" style='margin-bottom:0;' formControlName="verifyCode" placeholder="请输入验证码" *ngIf="showPicVerify">
+                <img class='img1' src="assets/img/login/login_icon_phone.png">
+                <img class='img2' src="assets/img/login/login_icon_password.png">
+                <img class='img3' src="assets/img/login/signin_icon_authcode.png" *ngIf="showPicVerify">
+                <img class='img6' (click)="refreshcode(passwordForm.value)" [src]="imgUrl" *ngIf="showPicVerify">
+                <div>
+                    <p>&nbsp;&nbsp;两周内自动登录</p>
+                    <p routerLink="../reset">忘记密码</p>
+                    <img *ngIf='login_Agree' (click)="loginAgree(false)" src="assets/img/login/login_icon_agree.png">
+                    <img *ngIf='!login_Agree' (click)="loginAgree(true)" src="assets/img/login/login_icon_disagree.png">
+                </div>
+                <el-icon class='icon1' *ngIf="passwordForm.controls.account.valid && passwordForm.controls.account.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+                <el-icon class='icon1' *ngIf="!passwordForm.controls.account.valid && passwordForm.controls.account.dirty" name="circle-close" style="color:red;"></el-icon>
+                <el-icon class='icon2' *ngIf="passwordForm.controls.password.valid && passwordForm.controls.password.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+                <el-icon class='icon2' *ngIf="!passwordForm.controls.password.valid && passwordForm.controls.password.dirty" name="circle-close" style="color:red;"></el-icon>
+                <el-icon class='icon3' *ngIf="passwordForm.controls.verifyCode.valid && passwordForm.controls.verifyCode.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+                <el-icon class='icon3' *ngIf="!passwordForm.controls.verifyCode.valid && passwordForm.controls.verifyCode.dirty" name="circle-close" style="color:red;"></el-icon>
+                <span *ngIf="!showPicVerify"><el-button type="primary" (click)="login(passwordForm.value);$event.preventDefault();$event.stopPropagation();" class="btn btn1" [elDisabled]="!passwordForm.valid||submitted">登录</el-button></span>
+                <span *ngIf="showPicVerify"><el-button type="primary"  (click)="login(passwordForm.value);$event.preventDefault();$event.stopPropagation();" class="btn btn1" [elDisabled]="!passwordForm.valid||submitted||!passwordForm.controls.verifyCode.value">登录</el-button></span>
+            </form>
+        </div>
+        <div class='_login _register' *ngIf='!tabfirst'>
+            <form [formGroup]="registerForm">
+                <input type="text" formControlName="account" placeholder="请输入手机号">
+                <input type="text" formControlName="verify" placeholder="请输入验证码">
+                <input type="password" formControlName="password" placeholder="请设置8-20位字母加数字密码">
+                <input type="password" formControlName="confirmpassword" placeholder="请确认密码">
+                <input type="text" formControlName="recommend" placeholder="请输入邀请码（必填）">
+                <img class='img1' src="assets/img/login/login_icon_phone.png">
+                <img class='img2' src="assets/img/login/signin_icon_authcode.png">
+                <img class='img3' src="assets/img/login/login_icon_password.png">
+                <img class='img4' src="assets/img/login/login_icon_password.png">
+                <img class='img5' src="assets/img/login/signin_icon_Invitationcode.png">
+                <el-icon class='icon1' *ngIf="registerForm.controls.account.valid && registerForm.controls.account.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+                <el-icon class='icon1' *ngIf="!registerForm.controls.account.valid && registerForm.controls.account.dirty" name="circle-close" style="color:red;"></el-icon>
+                <el-icon class='icon2' *ngIf="registerForm.controls.verify.valid && registerForm.controls.verify.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+                <el-icon class='icon2' *ngIf="!registerForm.controls.verify.valid && registerForm.controls.verify.dirty" name="circle-close" style="color:red;"></el-icon>
+                <el-icon class='icon3' *ngIf="registerForm.controls.password.valid && registerForm.controls.password.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+                <el-icon class='icon3' *ngIf="!registerForm.controls.password.valid && registerForm.controls.password.dirty" name="circle-close" style="color:red;"></el-icon>
+                <el-icon class='icon4' *ngIf="registerForm.controls.confirmpassword.valid && registerForm.controls.confirmpassword.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+                <el-icon class='icon4' *ngIf="(!registerForm.controls.confirmpassword.valid||registerForm.controls.password.value!=registerForm.controls.confirmpassword.value)&&registerForm.controls.confirmpassword.dirty" name="circle-close" style="color:red;"></el-icon>
+                <el-icon class='icon5' *ngIf="registerForm.controls.recommend.valid && registerForm.controls.recommend.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+                <el-icon class='icon5' *ngIf="!registerForm.controls.recommend.valid && registerForm.controls.recommend.dirty" name="circle-close" style="color:red;"></el-icon>
+                <div>
+
+                    <p>
+                        &nbsp;&nbsp;我已阅读并同意
+                        <a (click)="cusAgree()">《用户协议》</a>
+                    </p>
+                    <img *ngIf='register_Agree' (click)="registerAgree(false)" src="assets/img/login/login_icon_agree.png">
+                    <img *ngIf='!register_Agree' (click)="registerAgree(true)" src="assets/img/login/login_icon_disagree.png">
+                </div>
+                <el-button type="primary" class="btn btn1" (click)="register(registerForm.value);$event.preventDefault();$event.stopPropagation();" [elDisabled]="!registerForm.valid||submitted||registerForm.controls.password.value!=registerForm.controls.confirmpassword.value||!register_Agree">注册</el-button>
+                <el-button class=' p1 btn2' type="primary" (click)="getVerifyCode(registerForm.controls.account.value);$event.preventDefault();$event.stopPropagation();" [elDisabled]="!registerForm.controls.account.valid||submitstate">{{verifystate}}</el-button>
+            </form>
+        </div>
+    </div>
+</div>
+<el-dialog [title]="'用户协议'" [(visible)]="showAgree" [center]="true">
+    <div id='_html' style="max-height:600px;overflow-y:scroll;"></div>
+</el-dialog>

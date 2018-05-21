@@ -1,0 +1,61 @@
+<div class='header'>
+    <div class='container'>
+        <a href="" id='_title'>
+            <img [src]="globalData.config.logo">
+            <p>{{globalData.config.title}}</p>
+        </a>
+        <!-- <el-menu model="{{tabState}}" class="el-menu-demo home_tabs" (modelChange)="handle($event)" mode="horizontal" background-color="white" active-text-color="#2E86D1" text-color="black">
+            <el-menu-item index="1">首页</el-menu-item>
+            <el-menu-item index="2">帮助</el-menu-item>
+            <el-menu-item index="3">关于</el-menu-item>
+        </el-menu> -->
+        <ul class='home_tabs' (click)="handle($event)">
+            <li [ngClass]="{'active':tabState==1}">首页</li>
+            <li [ngClass]="{'active':tabState==4}">期权交易</li>
+            <li [ngClass]="{'active':tabState==2}">帮助</li>
+            <li [ngClass]="{'active':tabState==3}">关于</li>
+            <li [ngClass]="{'active':tabState==5}">下载</li>
+        </ul>
+        <div class='login'>
+            <div>
+                <p>
+                    <a *ngIf='!globalData.userId' (click)="goNextPage('登录')"><em style='font-style:normal;'>登录&nbsp;&nbsp;&nbsp;&nbsp;</em>|<em style='font-style:normal;'>&nbsp;&nbsp;&nbsp;&nbsp;注册</em></a>
+                    <a *ngIf='globalData.userId'><em style='font-style:normal;' (click)="goNextPage('个人中心')">个人中心&nbsp;&nbsp;&nbsp;&nbsp;</em>|<em style='font-style:normal;' (click)='logout()'>&nbsp;&nbsp;&nbsp;&nbsp;退出</em></a>
+                </p>
+            </div>
+            <!-- <div>
+                <p>
+                    <a routerLink="login/register">x</a>
+                </p>
+            </div> -->
+        </div>
+    </div>
+</div>
+<div class='content'>
+    <router-outlet></router-outlet>
+</div>
+<div class='footer'>
+    <div class='container'>
+        <!-- <div class='div1'>
+            <a href="">
+                <img src="assets/img/home/home_bottom_logo.png" alt="">
+                <p></p>
+            </a>
+            <p>一段介绍</p>
+        </div>
+        <div class='div2'>
+            <img src="assets/img/home/help_icon_code.png" alt="微信公众号">
+            <p>
+                关注官方公众号
+            </p>
+        </div>
+        <div class='div3'>
+            <p>客服电话： 400-123456</p>
+            <p>交易日09:00 - 次日05:00</p>
+            <p>非交易日09:30 - 21:15</p>
+            <img src="assets/img/home/home_bottom_service.png">
+            <button><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=742747955&site=qq&menu=yes">点击联系中文客服</a></button>
+        </div> -->
+        <p>{{globalData.config.record}}</p>
+    </div>
+</div>

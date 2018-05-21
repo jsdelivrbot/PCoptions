@@ -1,0 +1,262 @@
+.div1 {
+    width: 100%;
+    height: 560px;
+    background: url('assets/img/home/home_bg_1.png') no-repeat;
+    background-size: 100% 100%;
+    .in_wrap {
+        width: 1100px;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
+        &>p {
+            font-family: MicrosoftYaHei-Bold;
+            font-size: 30px;
+            color: #333333;
+            font-weight: 600;
+            padding: 80px 0 40px 0;
+        }
+        &>div {
+            float: left;
+            width: 350px;
+            height: 320px;
+            cursor: pointer;
+            &>div:first-child {
+                width: 100%;
+                height: 220px;
+                div {
+                    background: rgba(0, 0, 0, 0.7);
+                    text-align: center;
+                    width: 100%;
+                    height: 100%;
+                    -webkit-transition: .3s linear;
+                    transition: .3s linear;
+                    opacity: 0;
+                    img {
+                        margin-top: 80px;
+                        width: 60px;
+                        height: 60px;
+                    }
+                }
+            }
+            &>div:last-child {
+                width: 100%;
+                height: 100px;
+                text-align: left;
+                background: #FFFFFF;
+                -webkit-transition: .3s linear;
+                transition: .3s linear;
+                border-bottom: 2px solid #1C66A5;
+                &>p:first-child {
+                    font-family: MicrosoftYaHei;
+                    font-size: 12px;
+                    color: #999999;
+                    letter-spacing: 0;
+                    padding: 10px;
+                }
+                &>p:last-child {
+                    font-family: MicrosoftYaHei;
+                    font-size: 18px;
+                    color: #333333;
+                    letter-spacing: 0;
+                    padding-left: 10px;
+                }
+            }
+        }
+        &>div:hover {
+            &>div:first-child {
+                div {
+                    opacity: 1;
+                }
+            }
+            &>div:last-child {
+                background: #2E86D1;
+                p {
+                    color: white;
+                }
+            }
+        }
+        &>div:nth-child(2) {
+            &>div:first-child {
+                background: url('assets/img/home/about_bg_2.png') no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+        &>div:nth-child(3) {
+            margin: 0 25px;
+            &>div:first-child {
+                background: url('assets/img/home/about_bg_3.png') no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+        &>div:nth-child(4) {
+            &>div:first-child {
+                background: url('assets/img/home/about_bg_4.png') no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+    }
+}
+
+.div2 {
+    width: 100%;
+    height: 600px;
+    background: url('assets/img/home/home_bg_1.png') no-repeat;
+    background-size: 100% 100%;
+    .in_wrap {
+        width: 1100px;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
+        &>p {
+            font-family: MicrosoftYaHei-Bold;
+            font-size: 30px;
+            color: #333333;
+            font-weight: 600;
+            padding: 80px 0 40px 0;
+        }
+        &>div {
+            float: left;
+            width: 160px;
+            height: 230px;
+            margin-right: 20px;
+            img {
+                width: 100px;
+                height: 100px;
+            }
+            p:nth-child(2) {
+                font-family: MicrosoftYaHei-Bold;
+                font-size: 24px;
+                color: #333333;
+                font-weight: 600;
+                padding: 20px 0;
+            }
+            p:nth-child(3) {
+                font-family: MicrosoftYaHei;
+                font-size: 18px;
+                color: #333333;
+            }
+        }
+        &>div:nth-child(2) {
+            margin-left: 20px;
+        }
+    }
+}
+
+.div3 {
+    width: 100%;
+    height: 480px;
+    background: #F9F9F9;
+    background-size: 100% 100%;
+    .in_wrap {
+        width: 1100px;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        p:nth-child(1) {
+            font-family: MicrosoftYaHei-Bold;
+            font-size: 30px;
+            color: #333333;
+            font-weight: 600;
+            position: absolute;
+            left: 80px;
+            top: 174px;
+        }
+        p:nth-child(2) {
+            font-family: MicrosoftYaHei;
+            font-size: 24px;
+            color: #333333;
+            position: absolute;
+            left: 80px;
+            top: 244px;
+        }
+        img {
+            width: 400px;
+            height: 316px;
+            position: absolute;
+            right: 64px;
+            top: 64px;
+        }
+    }
+}
+
+.div4 {
+    background: #FFFFFF;
+    .in_wrap {
+        p:nth-child(1) {
+            left: 600px;
+        }
+        p:nth-child(2) {
+            left: 600px;
+        }
+        img {
+            left: 64px;
+            right: unset;
+            top: 85px;
+        }
+    }
+}
+
+.fixed {
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+    z-index: 100;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+
+.hlep {
+    position: fixed;
+    top: 330px;
+    right: -160px;
+    z-index: 100;
+    width: 210px;
+    height: 150px;
+    -webkit-transition: .3s linear;
+    transition: .3s linear;
+    cursor: pointer;
+    &>div {
+        float: left;
+    }
+    &>div:first-child {
+        width: 50px;
+        height: 140px;
+        background: url('assets/img/home/home_btn_contact.png') no-repeat;
+    }
+    &>div:last-child {
+        width: 160px;
+        height: 140px;
+        position: relative;
+        background: white;
+        div {
+            float: left;
+            height: 70px;
+            width: 100%;
+            strong {
+                font-size: 24px;
+                font-weight: 600;
+                line-height: 70px;
+            }
+            a {
+                font-size: 24px;
+                line-height: 70px;
+            }
+        }
+        div:hover {
+            background: #2E86D1;
+            strong {
+                color: white;
+            }
+            a {
+                color: white;
+            }
+        }
+    }
+}
+
+.hlep:hover {
+    right: 0px;
+}

@@ -1,0 +1,14 @@
+<div class='pay_wrap'>
+    <div class='pay'>
+        <div class="pay_in">
+            <div *ngFor="let x of [1,2,3,4,5,6]">
+                <span *ngIf="tipNum.length>=x"></span>
+            </div>
+        </div>
+        <br>
+        <p>请输入支付密码</p>
+        <br>
+        <br>
+        <el-button type="primary" class='but2' [loading]="inSearchState" [elDisabled]="tipNum.length<6" (click)="pay();$event.preventDefault();$event.stopPropagation();">确定</el-button>
+    </div>
+</div>

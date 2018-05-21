@@ -1,0 +1,225 @@
+.login_container {
+    width: 1100px;
+    margin: 0 auto;
+    height: 820px;
+    text-align: center;
+    &>p {
+        font-family: MicrosoftYaHei-Bold;
+        font-size: 28px;
+        color: #2E86D1;
+        letter-spacing: 0;
+        padding: 80px 0 40px 0;
+        img {
+            position: relative;
+            top: 10px;
+        }
+    }
+    .self_tab {
+        ul {
+            width: 160px;
+            height: 50px;
+            display: inline-block;
+            margin: 0 auto;
+            li {
+                float: left;
+                width: 80px;
+                height: 100%;
+                line-height: 50px;
+                list-style-type: none;
+                font-family: MicrosoftYaHei;
+                font-size: 18px;
+                color: #333333;
+                letter-spacing: 0;
+                cursor: pointer;
+            }
+            .active {
+                font-family: MicrosoftYaHei-Bold;
+                font-size: 18px;
+                color: #2E86D1;
+                letter-spacing: 0;
+                border-bottom: 4px solid #2E86D1;
+                font-weight: 600;
+            }
+        }
+    }
+    .tab_cont {
+        width: 500px;
+        height: auto;
+        background: #FFFFFF;
+        -webkit-box-shadow: 0 2px 8px 0 #CCCCCC;
+        box-shadow: 0 2px 8px 0 #CCCCCC;
+        margin: 20px auto;
+        input {
+            width: 300px;
+            height: 40px;
+            background: #FFFFFF;
+            border: 1px solid #2E86D1;
+            padding-left: 36px;
+        }
+        input::-ms-input-placeholder {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #CCCCCC;
+            letter-spacing: 0;
+        }
+        input::-moz-input-placeholder {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #CCCCCC;
+            letter-spacing: 0;
+        }
+        input::-o-input-placeholder {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #CCCCCC;
+            letter-spacing: 0;
+        }
+        input::-webkit-input-placeholder {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #CCCCCC;
+            letter-spacing: 0;
+        }
+        ._login {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            position: relative;
+            form {
+                .btn2 {
+                    position: absolute;
+                    top: 104px;
+                    right: 83px;
+                    font-family: MicrosoftYaHei;
+                    font-size: 14px;
+                    color: white;
+                    // background: linear-gradient(45deg, #88DCFF 0%, #4EA1FF 100%);
+                    letter-spacing: 0;
+                    cursor: pointer;
+                    outline: none;
+                    border-radius: 0;
+                    border: none;
+                }
+                &>input:nth-child(1) {
+                    margin: 40px 0 20px 0;
+                }
+                &>input:nth-child(3) {
+                    margin: 20px 0;
+                }
+                &>input:nth-child(5) {
+                    margin-top: 20px;
+                }
+                .img1 {
+                    position: absolute;
+                    left: 90px;
+                    top: 50px;
+                }
+                .img2 {
+                    position: absolute;
+                    left: 90px;
+                    top: 115px;
+                }
+                .img3 {
+                    position: absolute;
+                    left: 90px;
+                    top: 175px;
+                }
+                .img4 {
+                    position: absolute;
+                    left: 90px;
+                    top: 240px;
+                }
+                .img5 {
+                    position: absolute;
+                    left: 90px;
+                    top: 300px;
+                }
+                .img6 {
+                    position: absolute;
+                    right: 90px;
+                    top: 170px;
+                    max-width: 140px;
+                    cursor: pointer;
+                }
+                .icon1 {
+                    position: absolute;
+                    font-size: 18px;
+                    top: 48px;
+                    right: 50px;
+                }
+                .icon2 {
+                    position: absolute;
+                    font-size: 18px;
+                    top: 111px;
+                    right: 50px;
+                }
+                .icon3 {
+                    position: absolute;
+                    font-size: 18px;
+                    top: 173px;
+                    right: 50px;
+                }
+                .icon4 {
+                    position: absolute;
+                    font-size: 18px;
+                    top: 235px;
+                    right: 50px;
+                }
+                .icon5 {
+                    position: absolute;
+                    font-size: 18px;
+                    top: 295px;
+                    right: 50px;
+                }
+                &>div {
+                    width: 335px;
+                    margin: 0 auto;
+                    position: relative;
+                    p {
+                        display: inline-block;
+                        font-family: MicrosoftYaHei;
+                        font-size: 12px;
+                        color: #333333;
+                        letter-spacing: 0;
+                        padding-top: 10px;
+                    }
+                    img {
+                        cursor: pointer;
+                        position: absolute;
+                        top: 11px;
+                        left: 0;
+                        width: 16px;
+                        height: 16px;
+                    }
+                    p:nth-child(1) {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        padding-left: 20px;
+                        a {
+                            color: #2E86D1;
+                            cursor: pointer;
+                        }
+                    }
+                    p:nth-child(2) {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        color: #2E86D1;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .btn1 {
+                border: none;
+                color: white;
+                width: 300px;
+                height: 40px;
+                margin-top: 80px;
+                outline: none;
+                cursor: pointer;
+                margin-bottom: 40px;
+            }
+        }
+    }
+}

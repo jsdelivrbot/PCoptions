@@ -1,0 +1,23 @@
+<div class='withDraw'>
+    <div class='info_title'>
+        <p>提现</p>
+    </div>
+    <div class='form_wrap'>
+        <p class='p1'>账户可用余额 <strong>{{globalData.funds}}</strong>元</p>
+        <div class='input_wrap input_wrap1'>
+            <el-dropdown [model]="bankListData" (selected)="chooseBank($event)" class='elbtn1' trigger="click" [split-button]="true" type="primary">
+                {{defaultbank}}
+            </el-dropdown>
+            <p>提现银行卡</p>
+        </div>
+        <div class='input_wrap'>
+            <input type="text" [(ngModel)]="money" placeholder="请输入提现金额">
+            <p>提现金额</p>
+        </div>
+        <div class='input_wrap'>
+            <input type="password" [(ngModel)]="password" placeholder="请输入提现密码">
+            <p>提现密码</p>
+        </div>
+        <el-button class='btn' (click)='sub()' [elDisabled]="!money||password.length!=6" type="primary">立即提现</el-button>
+    </div>
+</div>

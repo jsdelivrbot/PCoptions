@@ -1,0 +1,49 @@
+.download_wrap {
+    width: 900px;
+    margin: 0 auto;
+    min-height: 860px;
+    position: relative;
+    h4 {
+        font-family: MicrosoftYaHei-Bold;
+        font-size: 30px;
+        color: #333333;
+        text-align: left;
+        text-align: center;
+        font-weight: bold;
+        padding-top: 80px;
+    }
+    .img1 {
+        width: 520px;
+        height: 427px;
+        position: absolute;
+        left: 20px;
+        top: 200px;
+    }
+    &>div {
+        position: absolute;
+        top: 210px;
+        right: 20px;
+        width: 160px;
+        height: 440px;
+        text-align: center;
+        img {
+            width: 160px;
+            height: 160px;
+        }
+        p {
+            font-family: MicrosoftYaHei;
+            font-size: 18px;
+            color: #333333;
+            letter-spacing: 0;
+            text-align: left;
+            text-align: center;
+            padding-top: 15px;
+        }
+    }
+    #qrcode1,
+    #qrcode2 {
+        display: block;
+        width: 160px;
+        height: 160px;
+    }
+}

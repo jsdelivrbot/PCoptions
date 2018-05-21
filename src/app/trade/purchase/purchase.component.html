@@ -1,0 +1,110 @@
+<div class='pur_wrap'>
+    <div class='div1'>
+        <p class='p1'>
+            标的股票
+        </p>
+        <p class='p2' *ngIf="showPrice">买入价 {{price}}
+            <el-tooltip class='img2' placement="right" effect="light">
+                <img src="assets/img/trade/icon_instructions.png">
+                <ng-template #tip>
+                    <span>行权价对应股票“基础资产”的价格期权<br>行权价大小决定了期权的内在价值</span>
+                </ng-template>
+            </el-tooltip>
+        </p>
+        <input type="text" placeholder="请输入股票代码/简拼" [(ngModel)]="search_value" (ngModelChange)="searchChange($event)">
+        <el-tooltip class='img1' placement="top" effect="light">
+            <img src="assets/img/trade/icon_instructions.png">
+            <ng-template #tip>
+                <span>标的股票：禁止买入ST、*ST、上市新股、连续<br>涨停、企业亏损、或其他被限制的股票；</span>
+            </ng-template>
+        </el-tooltip>
+        <div class='search' *ngIf='searching'>
+            <div (click)="chooseCode(x)" *ngFor='let x of searData'>
+                <p>{{x.stockName}}</p>
+                <p>{{x.stockCode}}</p>
+            </div>
+        </div>
+    </div>
+    <div class='div1'>
+        <p class='p1'>
+            行权周期
+        </p>
+        <div class='clearfix float_wrap'>
+            <div class='in_div' (click)='clickOne(x.refValue)' [ngClass]="{'active': choose1==x.refValue}" *ngFor="let x of constr1Data">
+                <p>{{x.refText}}</p>
+            </div>
+            <div class='in_div' style="border:unset;text-align:left">
+                <el-tooltip class='img3' placement="top" effect="light">
+                    <img src="assets/img/trade/icon_instructions.png">
+                    <ng-template #tip>
+                        <span>行权周期：即用户行使权力的时间周期，用户可在<br>行权周期内任意时间自主行权，或者到期自动行权；<br>所选行权周期越长，所需的权利金越高；</span>
+                    </ng-template>
+                </el-tooltip>
+            </div>
+        </div>
+    </div>
+    <div class='div1'>
+        <p class='p1'>
+            名义本金
+        </p>
+        <input type="text" [disabled]="!canType" [(ngModel)]="M_num" placeholder="{{selfSet}}">
+        <p class='p3'>万</p>
+        <el-tooltip class='img4' placement="top" effect="light">
+            <img src="assets/img/trade/icon_instructions.png">
+            <ng-template #tip>
+                <p style="padding-bottom:15px">名义本金：买入期权的总金额，最低{{selfSetValue}}万起。</p>
+            </ng-template>
+        </el-tooltip>
+        <div class='clearfix float_wrap float_wrap2'>
+            <div class='in_div' (click)='clickTwo(x.refValue)' [ngClass]="{'active': M_num==x.refValue}" *ngFor="let x of constr2Data">
+                <p>{{x.refText}}</p>
+            </div>
+        </div>
+    </div>
+    <el-button type="primary" class='but1' (click)="inquiry()" [loading]="inSearchState" [elDisabled]="!M_num||!search_value||inSearchState"><span *ngIf='inSearchState'>正在</span>询价</el-button>
+</div>
+<div class="box-card">
+    <el-dialog [title]="'询价结果'" [width]="440" [(visible)]="showResult" [center]="true">
+        <table class="table1">
+            <tr>
+                <td>标的股票</td>
+                <td>{{subData.stockName}}{{subData.stockCode}}</td>
+            </tr>
+            <tr>
+                <td>名义本金</td>
+                <td>{{subData.principal|number: '1.0-2'}}</td>
+            </tr>
+            <tr>
+                <td>行权周期</td>
+                <td>{{subData.duration}}</td>
+            </tr>
+            <tr>
+                <td>权利金费率</td>
+                <td>{{subData.expenseRate|number: '1.0-2'}}%</td>
+            </tr>
+            <tr>
+                <td>权利金</td>
+                <td>{{subData.expense|number: '1.0-2'}}</td>
+            </tr>
+        </table>
+        <table class="table2">
+            <tr>
+                <td>预期涨幅</td>
+                <td>盈亏比例</td>
+                <td>盈利金额</td>
+            </tr>
+            <tr *ngFor='let x of subData.profitInfos' [ngClass]="{'font_red':true}">
+                <td>{{x.riseRate}}</td>
+                <td>{{x.profitLossRatio}}</td>
+                <td>{{x.profitAmount}}</td>
+            </tr>
+        </table>
+        <br>
+        <p class="p2">点击"立即认购"代表您已同意<a (click)="cusAgree()">《委托合作协议》</a></p>
+        <br>
+        <el-button type="primary" class='but2' (click)="goPay();$event.preventDefault();$event.stopPropagation();">立即认购</el-button>
+    </el-dialog>
+</div>
+<el-dialog [title]="'委托合作协议'" [(visible)]="showAgree" [center]="true">
+    <div id='_html1' style="max-height:600px;overflow-y:scroll;"></div>
+</el-dialog>

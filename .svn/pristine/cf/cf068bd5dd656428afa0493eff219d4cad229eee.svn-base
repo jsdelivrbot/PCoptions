@@ -1,0 +1,55 @@
+<div class='bankCard'>
+    <div class='info_title'>
+        <p *ngIf='step==1'>银行卡</p>
+        <p *ngIf='step==2'>添加银行卡</p>
+        <em *ngIf='step==1'>注：最多只能绑定三张银行卡</em>
+        <span *ngIf='step==1'>
+            <el-button  class='bc_titbut' [elDisabled]="globalData.cardCount>2" (click)='nwxtStep()'>添加银行卡</el-button>
+        </span>
+    </div>
+    <div class='list_wrap' *ngIf='step==1'>
+        <div *ngFor="let hero of bankData">
+            <img src="{{hero.bankIcon}}">
+            <p class='p1'>{{hero.bank}}</p>
+            <p class='p2'>{{hero.bankCardNumber}}</p>
+            <el-icon class='del' name="close" (click)='dialog(hero.id)'></el-icon>
+        </div>
+        <section class='noData' *ngIf='noData'>
+            <img src="assets/img/my/my_icon_nothing.png">
+            <p>暂无记录</p>
+        </section>
+    </div>
+    <div class='add_wrap' *ngIf='step==2'>
+        <div class='input1'>
+            <el-dropdown [model]="bankListData" (selected)="chooseBank($event)" class='elbtn1' trigger="click" [split-button]="true" type="primary">
+                {{defaultbank}}
+            </el-dropdown>
+        </div>
+        <input class='input2' [(ngModel)]="branch" type="text" placeholder="请输入开户银行所属支行">
+        <div class='input3'>
+            <el-cascader [options]="options" class='elbtn1' (modelChange)="choosePlace($event)">
+            </el-cascader>
+        </div>
+        <form [formGroup]="bankForm" autocomplete="off">
+
+            <input class='input4' formControlName="banknumber" type="text" placeholder="请输入银行卡号">
+            <p class='p1'>开户银行</p>
+            <p class='p2'>所属支行</p>
+            <p class='p3'>所属省市</p>
+            <p class='p4'>卡号</p>
+            <el-icon class='icon1' *ngIf="bankForm.controls.banknumber.valid && bankForm.controls.banknumber.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+            <el-icon class='icon1' *ngIf="!bankForm.controls.banknumber.valid && bankForm.controls.banknumber.dirty" name="circle-close" style="color:red;"></el-icon>
+            <el-button class='btn' (click)='addCard(bankForm.value)' [elDisabled]='!bankForm.valid||submitted||!choosedbank||!choosedplace||!branch' type="primary">立即添加</el-button>
+        </form>
+    </div>
+</div>
+<el-dialog [(visible)]="showDialog" [center]="true" style='width:500px'>
+    <ng-template #title>
+        <!-- <span>朗诵</span> -->
+    </ng-template>
+    <p style='font-size:20px;text-align:center;'>是否解绑此银行卡？</p>
+    <ng-template #footer>
+        <el-button (click)="delCard(false)">取消</el-button>
+        <el-button (click)="delCard(true)">确定</el-button>
+    </ng-template>
+</el-dialog>

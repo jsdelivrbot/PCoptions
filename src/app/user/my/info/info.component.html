@@ -1,0 +1,20 @@
+<div class='info_title'>
+    <p>个人信息</p>
+</div>
+<div class='_card'>
+    <table>
+        <tr>
+            <td *ngIf='!globalData.authState'>未认证</td>
+            <td *ngIf='globalData.authState'>{{globalData.realName}}</td>
+            <td>资产总额</td>
+        </tr>
+        <tr>
+            <td>{{globalData.account|phoneHide}}</td>
+            <td>￥{{globalData.capital}}</td>
+        </tr>
+    </table>
+</div>
+<div class='but_wrap'>
+    <button *ngIf='!globalData.simulateAccount' (click)="changeTab('充值')">充值</button>
+    <button *ngIf='!globalData.simulateAccount' (click)="changeTab('提现')">提现</button>
+</div>

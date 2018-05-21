@@ -1,0 +1,137 @@
+<el-carousel height="500px" interval='7000' *ngIf='bannerdata.length!=0'>
+    <el-carousel-item *ngFor='let x of bannerdata'>
+        <a target="_blank" [href]="x.link">
+            <img [src]="x.pcImgUrl||x.imgUrl" style="display: block;margin:0 auto; width: auto;height:100%;cursor:pointer;">
+        </a>
+    </el-carousel-item>
+</el-carousel>
+<div class='div1'>
+    <div class='in_wrap'>
+        <p>快速了解什么是期权？</p>
+        <div (click)="showVideo(1)">
+            <div>
+                <div>
+                    <img src="assets/img/home/home_video_btn_play.png" alt="播放">
+                </div>
+            </div>
+            <div>
+                <p>期权知识</p>
+                <p>股票期权的投资</p>
+            </div>
+        </div>
+        <div (click)="showVideo(2)">
+            <div>
+                <div>
+                    <img src="assets/img/home/home_video_btn_play.png" alt="播放">
+                </div>
+            </div>
+            <div>
+                <p>期权知识</p>
+                <p>行权交收</p>
+            </div>
+        </div>
+        <div (click)="showVideo(3)">
+            <div>
+                <div>
+                    <img src="assets/img/home/home_video_btn_play.png" alt="播放">
+                </div>
+            </div>
+            <div>
+                <p>期权知识</p>
+                <p>股票期权与权证</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='div2'>
+    <div class='in_wrap'>
+        <p>为什么选择期权？</p>
+        <div>
+            <img src="assets/img/home/home_icon_1.png">
+            <p>以小博大</p>
+            <p>高杠杆特征
+                <br>小资金大收益
+            </p>
+        </div>
+        <div>
+            <img src="assets/img/home/home_icon_2.png">
+            <p>有限风险</p>
+            <p>合约期内无强平
+                <br>亏损有限盈利无限
+            </p>
+        </div>
+        <div>
+            <img src="assets/img/home/home_icon_3.png">
+            <p>费用低,杠杆高</p>
+            <p>权利金低
+                <br>利润更大
+            </p>
+        </div>
+        <div>
+            <img src="assets/img/home/home_icon_4.png">
+            <p>交易灵活</p>
+            <p>可定制交易合约
+                <br>周期内自由行权
+            </p>
+        </div>
+        <div>
+            <img src="assets/img/home/home_icon_5.png">
+            <p>延迟交易</p>
+            <p>锁定权益
+                <br>伺机交易
+            </p>
+        </div>
+        <div>
+            <img src="assets/img/home/home_icon_6.png">
+            <p>安全稳定</p>
+            <p>方便快捷
+                <br>收益显著
+            </p>
+        </div>
+    </div>
+</div>
+<div class='div3'>
+    <div class='in_wrap'>
+        <p>多家股票期权卖方通道</p>
+        <p>撮合散户通过平台借用结构投资人的
+            <br>通道参与场外期权交易
+        </p>
+        <img src="assets/img/home/home_img_1.png">
+    </div>
+</div>
+<div class='div3 div4'>
+    <div class='in_wrap'>
+        <p>资产配置最大化</p>
+        <p>杠杆倍数达10～50倍，不需要面临<br>爆仓、强平、追加保证金等情况
+        </p>
+        <img src="assets/img/home/home_img_2.png">
+    </div>
+</div>
+<img src="assets/img/home/home_btn_backtop@3x.png" (click)='scrollTop()' class='fixed'>
+<!-- <div class='hlep'>
+    <div></div>
+    <div>
+        <div>
+            <strong>&nbsp;18888888888</strong>
+        </div>
+        <div>
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=742747955&site=qq&menu=yes">&nbsp;742747955</a>
+        </div>
+    </div>
+</div> -->
+<!-- <ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">视频标题</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+    <div class="modal-body">
+        <video width="100%" controls="controls" src="http://47.97.60.28:8004/assets/video/movie.mp4"></video>
+    </div>
+</ng-template> -->
+<div class="box-card">
+    <el-dialog [(visible)]="card" [center]="true" [before-close]="handle">
+        <video width="100%" id="video" controls="controls" src="{{videoSrc}}"></video>
+    </el-dialog>
+</div>

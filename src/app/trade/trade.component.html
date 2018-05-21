@@ -1,0 +1,20 @@
+<div class='trade_container'>
+    <div class='left_side'>
+        <div class="_tabs">
+            <div (click)="changeTab(1)" [ngClass]="{'active':subTabState==1}">
+                <p>期权申购</p>
+                <img class="_inactive" src="assets/img/trade/deal_icon_subscribe_nor.png">
+                <img class="_active" src="assets/img/trade/deal_icon_subscribe_pre.png">
+            </div>
+            <div (click)="changeTab(2)" [ngClass]="{'active':subTabState==2}">
+                <p>交易</p>
+                <img class="_inactive" src="assets/img/trade/deal_icon_deal_nor.png">
+                <img class="_active" src="assets/img/trade/deal_icon_deal_pre.png">
+            </div>
+        </div>
+    </div>
+    <div class='right_side'>
+        <app-purchase *ngIf="subTabState==1"></app-purchase>
+        <app-list *ngIf="subTabState==2"></app-list>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+#hD_cont {
+    width: 1050px;
+    margin: 40px auto;
+    min-height: 850px;
+}

@@ -1,0 +1,235 @@
+.header {
+    border-bottom: 1px solid #CCCCCC;
+    .container {
+        width: 1100px;
+        height: 80px;
+        margin: 0 auto;
+        position: relative;
+        &>a {
+            cursor: pointer;
+            text-decoration: unset;
+            display: block;
+            padding-top: 10px;
+            position: absolute;
+            &>p {
+                font-family: MicrosoftYaHei-Bold;
+                font-size: 28px;
+                color: #2E86D1;
+                letter-spacing: 0;
+                font-weight: 600;
+                line-height: 1;
+                top: 24px;
+                left: 50px;
+                display: inline-block;
+            }
+            &>img {
+                width: 40px;
+                height: 40px;
+                top: 20px;
+                left: 0;
+                display: inline-block;
+                position: relative;
+                top: 10px;
+            }
+        }
+        a:link {
+            color: #2E86D1;
+            text-decoration: unset;
+        }
+        a:visited {
+            color: #2E86D1;
+            text-decoration: unset;
+        }
+        a:active {
+            color: #2E86D1;
+            text-decoration: unset;
+        }
+        a:hover {
+            color: #2E86D1;
+            text-decoration: unset;
+        }
+        .home_tabs {
+            position: absolute;
+            width: 700px;
+            left: 220px;
+            top: 10px;
+            cursor: pointer;
+            li {
+                display: inline-block;
+                width: 100px;
+                height: 60px;
+                line-height: 60px;
+                text-align: center;
+                font-family: MicrosoftYaHei;
+                font-size: 18px;
+                color: #333333;
+                letter-spacing: 0;
+                -webkit-transition: .3s linear;
+                transition: .3s linear;
+            }
+            .active {
+                color: #2E86D1;
+                border-bottom: 2px solid #2E86D1;
+                font-weight: 600;
+            }
+            li:hover {
+                background: #2E86D1;
+                color: white;
+                font-weight: 600;
+            }
+        }
+        .login {
+            position: absolute;
+            right: 60px;
+            top: 30px;
+            height: 30px;
+            width: 140px;
+            div {
+                float: left;
+                width: 189px;
+                height: 100%;
+                text-align: center;
+                p {
+                    font-family: MicrosoftYaHei;
+                    font-size: 18px;
+                    color: #2E86D1;
+                    letter-spacing: 0;
+                    line-height: 1;
+                    padding-top: 5px;
+                    cursor: pointer;
+                }
+            }
+            &>div:first-child {
+                // border-right: 1px solid #2E86D1;
+            }
+        }
+    }
+}
+
+.footer {
+    width: 100%;
+    height: 120px;
+    background: #303030;
+    .container {
+        width: 1100px;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
+        &>p {
+            font-family: MicrosoftYaHei;
+            font-size: 12px;
+            color: #999999;
+            letter-spacing: 0;
+            padding-top: 54px;
+        }
+        .div1 {
+            position: absolute;
+            width: 380px;
+            left: 0;
+            top: 40px;
+            height: 200px;
+            padding-top: 80px;
+            text-align: left;
+            &>p {
+                font-family: MicrosoftYaHei;
+                font-size: 14px;
+                color: #FFFFFF;
+                letter-spacing: 0;
+                text-indent: 2em;
+            }
+            &>a {
+                cursor: pointer;
+                &>p {
+                    font-family: MicrosoftYaHei-Bold;
+                    font-size: 24px;
+                    color: white;
+                    letter-spacing: 0;
+                    font-weight: 600;
+                    line-height: 1;
+                    position: absolute;
+                    top: 22px;
+                    left: 45px;
+                }
+                &>img {
+                    width: 30px;
+                    height: 30px;
+                    position: absolute;
+                    top: 20px;
+                    left: 0;
+                }
+            }
+        }
+        .div2 {
+            width: 170px;
+            height: 170px;
+            position: absolute;
+            right: 310px;
+            top: 80px;
+            text-align: center;
+            border-right: 2px solid #999999;
+            img {
+                width: 80px;
+                height: 80px;
+                margin-top: 30px;
+                -webkit-transition: .3s linear;
+                transition: .3s linear;
+            }
+            img:hover {
+                margin-top: -90px;
+                width: 200px;
+                height: 200px;
+            }
+            p {
+                font-family: MicrosoftYaHei;
+                font-size: 14px;
+                color: #FFFFFF;
+                letter-spacing: 0;
+            }
+        }
+        .div3 {
+            width: 240px;
+            height: 170px;
+            position: absolute;
+            right: 70px;
+            top: 80px;
+            text-align: left;
+            p {
+                font-family: MicrosoftYaHei;
+                font-size: 14px;
+                color: #FFFFFF;
+                letter-spacing: 0;
+                padding-left: 40px;
+                line-height: 2;
+            }
+            p:first-child {
+                padding-top: 14px;
+            }
+            img {
+                position: relative;
+                top: 20px;
+                left: 40px;
+            }
+            button {
+                position: relative;
+                top: 14px;
+                left: 45px;
+                background: #FFFFFF;
+                font-family: MicrosoftYaHei;
+                font-size: 14px;
+                color: #3A3A3A;
+                letter-spacing: 0;
+                border: none;
+                padding: 5px;
+                a {
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+.content {
+    width: 100%;
+    height: auto;
+}

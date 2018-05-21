@@ -1,0 +1,65 @@
+<div class='_container'>
+    <div class='left_side'>
+        <br>
+        <!-- <el-tree class="tree" [indent]='15' [accordion]="true" (modelChange)="tabChange($event)" [model]="treeData">
+        </el-tree> -->
+        <el-menu model="2" (modelChange)="tabChange($event)" active-text-color='#2E86D1' class="el-menu-vertical-demo">
+            <el-submenu index="1">
+                <ng-template #title>
+                    账户首页
+                </ng-template>
+                <el-menu-item-group>
+                    <el-menu-item index="1-1">个人信息</el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
+            <el-submenu index="2" *ngIf='!globalData.simulateAccount'>
+                <ng-template #title>
+                    资金相关
+                </ng-template>
+                <el-menu-item-group>
+                    <el-menu-item index="2-1">充值 </el-menu-item>
+                    <el-menu-item index="2-2">提现 </el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
+            <el-submenu index="3" *ngIf='!globalData.simulateAccount'>
+                <ng-template #title>
+                    账户明细
+                </ng-template>
+                <el-menu-item-group>
+                    <el-menu-item index="3-1">充值记录</el-menu-item>
+                    <el-menu-item index="3-2">提现记录</el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
+            <el-submenu index="4" *ngIf='!globalData.simulateAccount'>
+                <ng-template #title>
+                    账户设置
+                </ng-template>
+                <el-menu-item-group>
+                    <el-menu-item index="4-1">实名认证</el-menu-item>
+                    <el-menu-item index="4-2">银行卡</el-menu-item>
+                    <el-menu-item index="4-3">支付密码</el-menu-item>
+                    <el-menu-item index="4-4">修改登录密码</el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
+            <el-submenu index="4" *ngIf='globalData.simulateAccount'>
+                <ng-template #title>
+                    账户设置
+                </ng-template>
+                <el-menu-item-group>
+                    <el-menu-item index="4-4">修改登录密码</el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
+        </el-menu>
+    </div>
+    <div class='right_side'>
+        <app-info *ngIf="globalData.tabState=='个人信息'"></app-info>
+        <app-recharge *ngIf="globalData.tabState=='充值'"></app-recharge>
+        <app-withDraw *ngIf="globalData.tabState=='提现'"></app-withDraw>
+        <app-rechargeRecord *ngIf="globalData.tabState=='充值记录'"></app-rechargeRecord>
+        <app-withDrawRecord *ngIf="globalData.tabState=='提现记录'"></app-withDrawRecord>
+        <app-identify *ngIf="globalData.tabState=='实名认证'"></app-identify>
+        <app-bankCard *ngIf="globalData.tabState=='银行卡'"></app-bankCard>
+        <app-payPassword *ngIf="globalData.tabState=='支付密码'"></app-payPassword>
+        <app-loginPassword *ngIf="globalData.tabState=='修改登录密码'"></app-loginPassword>
+    </div>
+</div>

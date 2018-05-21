@@ -1,0 +1,85 @@
+import { Component, OnInit,TemplateRef} from '@angular/core';
+import { Router } from '@angular/router';
+import { HomeService } from './homeService';
+import { ElMessageService } from 'element-angular';
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
+})
+export class HomeComponent implements OnInit {
+	public videoSrc='';
+	public card:boolean=false;
+	public bannerdata=[];
+	public videodata=[];
+  	constructor(
+		private router: Router,
+		private homeservice: HomeService,
+		public message: ElMessageService,
+		) { 
+    }
+  	ngOnInit() {
+		  this.getBanner();
+		  this.getVideos();
+    }
+    //滚动到顶部
+  	scrollTop(){
+      var timer = null;
+      cancelAnimationFrame(timer);
+      timer = requestAnimationFrame(function fn(){
+        var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+        if(oTop > 0){
+          scrollTo(0,oTop-50);
+          timer = requestAnimationFrame(fn);
+        }else{
+          cancelAnimationFrame(timer);
+        } 
+      });
+    }
+    goNextPage(val){
+      	window.open(val.link)
+	}
+	//获取首页轮播图
+	getBanner(){
+		this.homeservice.getBanner()
+		.subscribe(res => {
+			if(res.success=='true'){
+				this.bannerdata=res.data;
+				// console.log(this.bannerdata)
+			}else{
+				this.message['error'](res.errorMsg);
+			}
+		});
+	}
+	getVideos(){
+		this.homeservice.getVideos()
+		.subscribe(res => {
+			if(res.success=='true'){
+				this.videodata=res.data;
+				console.log('res.data',res.data)
+			}else{
+				this.message['error'](res.errorMsg);
+			}
+		});
+	}
+    showVideo(val){
+      switch(val){
+        case 1:
+			this.videoSrc=this.videodata[0].url;
+			break;
+        case 2:
+			this.videoSrc=this.videodata[1].url;
+			break;
+        case 3:
+			this.videoSrc=this.videodata[2].url;
+			break;
+	  }
+		this.card=true;
+	  
+	}
+	handle(done: Function): void{
+		let temp:any=document.getElementById('video');
+		temp.pause();
+		done()
+	}
+}

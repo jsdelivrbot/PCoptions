@@ -1,0 +1,11 @@
+import { TemplateRef } from '@angular/core';
+import { ElCollapse, ModelValue } from './collapse';
+export declare class ElCollapseItem {
+    private root;
+    labelTmp: TemplateRef<any>;
+    label: string;
+    value: ModelValue | null;
+    constructor(root: ElCollapse);
+    isActive(): boolean;
+    clickHandle(): void;
+}

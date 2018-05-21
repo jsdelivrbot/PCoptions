@@ -1,0 +1,62 @@
+.novice_banner {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.no_cont {
+    width: 950px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 80px;
+    background: white;
+    text-align: center;
+    h3 {
+        text-align: center;
+        font-family: MicrosoftYaHei-Bold;
+        font-size: 30px;
+        color: #333333;
+        padding-bottom: 40px;
+    }
+    p {
+        text-align: left;
+        font-family: PingFangSC-Regular;
+        font-size: 24px;
+        color: #333333;
+        letter-spacing: 0;
+    }
+    table {
+        width: 100%;
+        text-align: left;
+        td {
+            font-family: PingFangSC-Regular;
+            font-size: 24px;
+            color: #333333;
+            letter-spacing: 0;
+        }
+    }
+    &>div {
+        width: 100%;
+        height: 200px;
+        &>div {
+            float: left;
+            height: 100%;
+            width: 237px;
+            text-align: center;
+            img {
+                margin: 0 auto;
+            }
+            p {
+                text-align: center;
+            }
+        }
+    }
+}
+
+.no_lastcont {
+    margin-bottom: 130px;
+    p {
+        padding: 0 15px;
+        font-size: 18px!important;
+    }
+}

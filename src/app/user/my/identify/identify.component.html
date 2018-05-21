@@ -1,0 +1,25 @@
+<div class='identify'>
+    <div class='info_title'>
+        <p *ngIf='!globalData.authState'>实名认证</p>
+        <p *ngIf='globalData.authState'>已认证</p>
+    </div>
+    <div class='id_card'><img src="assets/img/my/my_img_certification.png"></div>
+    <div class='form_wrap1'>
+        <form [formGroup]="verifyForm" autocomplete="off">
+            <input type="text" formControlName="name" *ngIf='!globalData.authState' placeholder="请输入真实姓名">
+            <input type="text" formControlName="verify" *ngIf='!globalData.authState' placeholder="请输入身份证号">
+            <input type="text" formControlName="name" *ngIf='globalData.authState' disabled="disabled" placeholder="{{globalData.realName}}">
+            <input type="text" formControlName="verify" *ngIf='globalData.authState' disabled="disabled" placeholder="*********">
+            <p class='p1'>真实姓名</p>
+            <p class='p2'>身份证号</p>
+            <el-icon class='icon1' *ngIf="verifyForm.controls.name.valid && verifyForm.controls.name.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+            <el-icon class='icon1' *ngIf="!verifyForm.controls.name.valid && verifyForm.controls.name.dirty" name="circle-close" style="color:red;"></el-icon>
+            <el-icon class='icon2' *ngIf="verifyForm.controls.verify.valid && verifyForm.controls.verify.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+            <el-icon class='icon2' *ngIf="!verifyForm.controls.verify.valid && verifyForm.controls.verify.dirty" name="circle-close" style="color:red;"></el-icon>
+            <el-button type="primary" (click)="nameVerify(verifyForm.value);$event.preventDefault();$event.stopPropagation();" class='p4' [elDisabled]="!verifyForm.valid">
+                <span *ngIf="!globalData.authState">立即认证</span>
+                <span *ngIf="globalData.authState">已认证</span>
+            </el-button>
+        </form>
+    </div>
+</div>

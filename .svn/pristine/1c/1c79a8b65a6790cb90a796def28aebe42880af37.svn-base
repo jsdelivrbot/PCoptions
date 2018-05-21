@@ -1,0 +1,199 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+import { Component, ElementRef, Renderer2, forwardRef, } from '@angular/core';
+import { ElSelectPoprs } from './select-props';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
+var ElSelect = /** @class */ (function (_super) {
+    __extends(ElSelect, _super);
+    /**
+     * @param {?} el
+     * @param {?} renderer
+     */
+    function ElSelect(el, renderer) {
+        var _this = _super.call(this) || this;
+        _this.el = el;
+        _this.renderer = renderer;
+        _this.subscriber = [];
+        _this.dropdownActive = false;
+        _this.iconClass = 'arrow-up';
+        _this.controlChange = function () { };
+        _this.controlTouch = function () { };
+        return _this;
+    }
+    /**
+     * @param {?=} isEnter
+     * @return {?}
+     */
+    ElSelect.prototype.mouseHandle = function (isEnter) {
+        if (isEnter === void 0) { isEnter = false; }
+        if (!this.clearable || !this.model)
+            return;
+        this.iconClass = "" + (isEnter ? 'circle-close is-reverse' : 'arrow-up');
+    };
+    /**
+     * @param {?=} event
+     * @return {?}
+     */
+    ElSelect.prototype.toggleHandle = function (event) {
+        if (this.elDisabled)
+            return;
+        event && event.stopPropagation();
+        this.dropdownActive = !this.dropdownActive;
+        var /** @type {?} */ nextClass = 'arrow-up' + (this.dropdownActive ? ' is-reverse' : '');
+        this.iconClass = !this.clearable ? nextClass : this.iconClass;
+    };
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    ElSelect.prototype.clearSelected = function (event) {
+        if (!this.clearable)
+            return;
+        event.stopPropagation();
+        // reset icon
+        this.mouseHandle(false);
+        // reset selected label
+        this.changeLabel(null, null);
+        // reset model
+        this.model = null;
+        this.modelChange.emit(this.model);
+        this.controlChange(this.model);
+        this.subscriber.forEach(function (sub) { return sub(); });
+        // close dropdown menu
+        this.dropdownActive = false;
+    };
+    /**
+     * @param {?} nextLabel
+     * @param {?=} nextValue
+     * @return {?}
+     */
+    ElSelect.prototype.changeLabel = function (nextLabel, nextValue) {
+        this.dropdownActive && this.toggleHandle();
+        // only update label
+        this.selectedLabel = nextLabel;
+        if (!nextValue || this.model === nextValue)
+            return;
+        this.model = nextValue;
+        this.modelChange.emit(nextValue);
+        this.controlChange(nextValue);
+        this.subscriber.forEach(function (sub) { return sub(); });
+    };
+    /**
+     * @return {?}
+     */
+    ElSelect.prototype.ngOnInit = function () {
+        var _this = this;
+        var /** @type {?} */ timer = setTimeout(function () {
+            _this.selfWidth = _this.el.nativeElement.getBoundingClientRect().width;
+            clearTimeout(timer);
+        }, 0);
+        this.globalListener = this.renderer.listen('document', 'click', function () {
+            _this.dropdownActive && _this.toggleHandle();
+        });
+    };
+    /**
+     * @param {?} changes
+     * @return {?}
+     */
+    ElSelect.prototype.ngOnChanges = function (changes) {
+        // not include model
+        if (!changes || !changes.model)
+            return;
+        if (changes.model.isFirstChange())
+            return;
+        // reset model
+        if (!changes.model.currentValue) {
+            this.selectedLabel = changes.model.currentValue;
+            this.model = changes.model.currentValue;
+            this.modelChange.emit(changes.model.currentValue);
+            this.controlChange(this.model);
+        }
+        this.subscriber.forEach(function (sub) { return sub(); });
+    };
+    /**
+     * @return {?}
+     */
+    ElSelect.prototype.ngOnDestroy = function () {
+        this.globalListener && this.globalListener();
+    };
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    ElSelect.prototype.writeValue = function (value) {
+        this.model = value;
+    };
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    ElSelect.prototype.registerOnChange = function (fn) {
+        this.controlChange = fn;
+    };
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    ElSelect.prototype.registerOnTouched = function (fn) {
+        this.controlTouch = fn;
+    };
+    ElSelect.decorators = [
+        { type: Component, args: [{
+                    selector: 'el-select',
+                    providers: [{
+                            provide: NG_VALUE_ACCESSOR,
+                            useExisting: forwardRef(function () { return ElSelect; }),
+                            multi: true
+                        }],
+                    styles: ['.el-select-dropdown__list { overflow: hidden; }'],
+                    template: "\n    <div class=\"el-select\" (click)=\"toggleHandle($event)\">\n      <el-input [model]=\"selectedLabel\" [placeholder]=\"placeholder\" [icon]=\"iconClass\"\n        iconClass=\"el-select__caret\"\n        [name]=\"name\" [size]=\"size\" [elDisabled]=\"elDisabled\"\n        (mouseenter)=\"mouseHandle(true)\" (mouseleave)=\"mouseHandle(false)\"\n        (icon-click)=\"clearSelected($event)\">\n      </el-input>\n      <ng-container>\n        <el-select-dropdown [isActived]=\"dropdownActive\">\n          <ul class=\"el-scrollbar__view el-select-dropdown__list\">\n            <ng-content></ng-content>\n          </ul>\n        </el-select-dropdown>\n      </ng-container>\n    </div>\n  ",
+                },] },
+    ];
+    /**
+     * @nocollapse
+     */
+    ElSelect.ctorParameters = function () { return [
+        { type: ElementRef, },
+        { type: Renderer2, },
+    ]; };
+    return ElSelect;
+}(ElSelectPoprs));
+export { ElSelect };
+function ElSelect_tsickle_Closure_declarations() {
+    /** @type {?} */
+    ElSelect.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    ElSelect.ctorParameters;
+    /** @type {?} */
+    ElSelect.prototype.selfWidth;
+    /** @type {?} */
+    ElSelect.prototype.subscriber;
+    /** @type {?} */
+    ElSelect.prototype.dropdownActive;
+    /** @type {?} */
+    ElSelect.prototype.selectedLabel;
+    /** @type {?} */
+    ElSelect.prototype.iconClass;
+    /** @type {?} */
+    ElSelect.prototype.globalListener;
+    /** @type {?} */
+    ElSelect.prototype.controlChange;
+    /** @type {?} */
+    ElSelect.prototype.controlTouch;
+    /** @type {?} */
+    ElSelect.prototype.el;
+    /** @type {?} */
+    ElSelect.prototype.renderer;
+}
+//# sourceMappingURL=select.js.map

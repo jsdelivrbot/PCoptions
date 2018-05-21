@@ -1,0 +1,219 @@
+.list_wrap {
+    width: 100%;
+    height: 940px;
+    margin-left: 40px;
+    .tabbar {
+        width: 860px;
+        height: 50px;
+        padding-top: 60px;
+        border-bottom: 1px solid #CCCCCC;
+        padding-bottom: 4px;
+        &>div {
+            width: 80px;
+            height: 50px;
+            float: left;
+            margin: 0 65px;
+            cursor: pointer;
+            -webkit-transition: .3s linear;
+            transition: .3s linear;
+            p {
+                text-align: center;
+                font-family: MicrosoftYaHei;
+                font-size: 18px;
+                color: #333333;
+                letter-spacing: 0;
+                line-height: 50px;
+            }
+        }
+        &>div:hover {
+            background: #2E86D1;
+            p {
+                color: white;
+                font-family: MicrosoftYaHei-Bold;
+                font-size: 18px;
+                letter-spacing: 0;
+                font-weight: bold;
+            }
+        }
+        .active {
+            border-bottom: 4px solid #2E86D1;
+            p {
+                font-family: MicrosoftYaHei-Bold;
+                font-size: 18px;
+                color: #2E86D1;
+                letter-spacing: 0;
+                font-weight: bold;
+            }
+        }
+    }
+    .cont {
+        width: 860px;
+        height: 800px;
+        padding-top: 20px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        .but2 {
+            width: 120px;
+            height: 40px;
+            border-radius: 0;
+        }
+        .font_green {
+            color: #37D4A4!important;
+        }
+        .font_red {
+            color: #FF5757!important;
+        }
+        .card {
+            width: 858px;
+            min-height: 220px;
+            border: 1px solid #CCCCCC;
+            margin-bottom: 20px;
+            &>div {
+                position: relative;
+            }
+            &>div:first-child {
+                border-bottom: 1px solid #CCCCCC;
+                height: 60px;
+                p {
+                    position: absolute;
+                    font-family: MicrosoftYaHei;
+                    font-size: 18px;
+                    color: #999999;
+                    letter-spacing: 0;
+                    text-align: left;
+                    line-height: 60px;
+                }
+                .p1 {
+                    left: 20px;
+                    color: black;
+                }
+                .p2 {
+                    left: 300px;
+                }
+                .p3 {
+                    right: 20px;
+                }
+            }
+            &>div:last-child {
+                .tip {
+                    height: 48px;
+                    width: auto;
+                    position: relative;
+                    p {
+                        font-family: MicrosoftYaHei-Bold;
+                        font-size: 18px;
+                        letter-spacing: 0;
+                        text-align: left;
+                        line-height: 48px;
+                        padding-left: 40px;
+                        font-weight: bold;
+                    }
+                    span {
+                        display: block;
+                        position: absolute;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        top: 19px;
+                        left: 20px;
+                    }
+                    strong {
+                        position: absolute;
+                        right: 20px;
+                        top: 10px;
+                        font-style: normal;
+                    }
+                }
+                .color1 {
+                    p {
+                        color: #FFB958;
+                    }
+                    span {
+                        background: #FFB958;
+                    }
+                }
+                .color2 {
+                    p {
+                        color: #37D4A4;
+                    }
+                    span {
+                        background: #37D4A4;
+                    }
+                }
+                .color3 {
+                    p {
+                        color: #FF5757;
+                    }
+                    span {
+                        background: #FF5757;
+                    }
+                }
+                .color4 {
+                    p {
+                        color: #FF5757;
+                    }
+                    span {
+                        background: #FF5757;
+                    }
+                }
+                .color5 {
+                    p {
+                        color: red;
+                    }
+                    span {
+                        background: red;
+                    }
+                }
+                table {
+                    border: none;
+                    width: 100%;
+                    text-align: left;
+                    margin-left: 20px;
+                    margin-top: 20px;
+                    td {
+                        font-family: MicrosoftYaHei;
+                        font-size: 18px;
+                        color: #999999;
+                        letter-spacing: 0;
+                        text-align: left;
+                        padding-bottom: 10px;
+                        em {
+                            font-style: normal;
+                            color: black;
+                            padding-left: 1em;
+                        }
+                    }
+                }
+            }
+        }
+        .noData {
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 260px;
+            p {
+                font-family: PingFangSC-Regular;
+                font-size: 18px;
+                color: #999999;
+                letter-spacing: 0;
+                text-align: left;
+                text-align: center;
+            }
+        }
+    }
+    .cont::-webkit-scrollbar {
+        display: none;
+    }
+    .cont::-ms-scrollbar {
+        display: none;
+    }
+    .cont::-o-scrollbar {
+        display: none;
+    }
+    .cont::-moz-scrollbar {
+        display: none;
+    }
+    .cancle {
+        background: white!important;
+        color: #409EFF!important;
+    }
+}

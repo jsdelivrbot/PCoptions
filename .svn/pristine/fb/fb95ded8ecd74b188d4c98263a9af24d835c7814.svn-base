@@ -1,0 +1,171 @@
+.reset_container {
+    width: 1100px;
+    margin: 0 auto;
+    height: 820px;
+    text-align: center;
+    &>p {
+        font-family: MicrosoftYaHei-Bold;
+        font-size: 24px;
+        color: #333333;
+        font-weight: 600;
+        padding-top: 80px;
+        padding-bottom: 40px;
+    }
+    .step {
+        margin: 0 auto;
+        width: 740px;
+        height: 80px;
+        .active {
+            background: #2E86D1!important;
+            border: none!important;
+            P {
+                color: white!important;
+            }
+        }
+        &>div {
+            float: left;
+            height: 100%;
+        }
+        &>div:nth-child(1),
+        &>div:nth-child(3),
+        &>div:nth-child(5) {
+            width: 80px;
+            text-align: center;
+            &>p {
+                font-family: MicrosoftYaHei;
+                font-size: 18px;
+                color: #333333;
+                letter-spacing: 0;
+                padding-top: 10px;
+            }
+            &>div {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                border: 2px solid #CCCCCC;
+                text-align: center;
+                margin: 0 auto;
+                p {
+                    font-family: MicrosoftYaHei;
+                    font-size: 18px;
+                    color: #CCCCCC;
+                    letter-spacing: 0;
+                    line-height: 30px;
+                }
+            }
+        }
+        &>div:nth-child(2),
+        &>div:nth-child(4) {
+            width: 240px;
+            height: 4px;
+            margin-top: 13px;
+            background: #CCCCCC;
+        }
+    }
+    .form_wrap1 {
+        width: 360px;
+        height: 260px;
+        position: relative;
+        margin: 0 auto;
+        margin-top: 75px;
+        .icon1 {
+            position: absolute;
+            font-size: 18px;
+            top: 10px;
+            right: -35px;
+        }
+        .icon2 {
+            position: absolute;
+            font-size: 18px;
+            top: 95px;
+            right: -35px;
+        }
+        input {
+            width: 260px;
+            height: 40px;
+            border: 1px solid #CCCCCC;
+            margin-left: 90px;
+            padding-left: 15px;
+        }
+        input::-ms-input-placeholder {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #CCCCCC;
+            letter-spacing: 0;
+        }
+        input::-moz-input-placeholder {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #CCCCCC;
+            letter-spacing: 0;
+        }
+        input::-o-input-placeholder {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #CCCCCC;
+            letter-spacing: 0;
+        }
+        input::-webkit-input-placeholder {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #CCCCCC;
+            letter-spacing: 0;
+        }
+        input:nth-child(2) {
+            margin: 44px 0 80px 90px;
+        }
+        .p1 {
+            font-family: MicrosoftYaHei;
+            font-size: 18px;
+            color: #000000;
+            letter-spacing: 0;
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+        .p2 {
+            font-family: MicrosoftYaHei;
+            font-size: 18px;
+            color: #000000;
+            letter-spacing: 0;
+            position: absolute;
+            left: 0;
+            top: 92px;
+        }
+        .p3 {
+            font-family: MicrosoftYaHei;
+            font-size: 16px;
+            letter-spacing: 0;
+            position: absolute;
+            right: -5px;
+            top: 88px;
+            cursor: pointer;
+            font-family: MicrosoftYaHei;
+            color: white;
+            // background: linear-gradient(45deg, #88DCFF 0%, #4EA1FF 100%);
+            outline: none;
+            border-radius: 0;
+            border: none;
+            height: 38px;
+        }
+        .p4 {
+            // background: linear-gradient(45deg, #88DCFF 0%, #4EA1FF 100%);
+            border: none;
+            color: white;
+            width: 300px;
+            height: 40px;
+            outline: none;
+            cursor: pointer;
+            margin-bottom: 40px;
+        }
+        .p5 {
+            border: none;
+            color: white;
+            width: 300px;
+            height: 40px;
+            outline: none;
+            cursor: pointer;
+            margin-bottom: 40px;
+        }
+    }
+}

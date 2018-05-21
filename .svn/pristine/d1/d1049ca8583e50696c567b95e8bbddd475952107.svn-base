@@ -1,0 +1,241 @@
+.pur_wrap {
+    width: 100%;
+    padding-top: 60px;
+    padding-left: 60px;
+    text-align: center;
+    .div1 {
+        width: 100%;
+        height: 40px;
+        position: relative;
+        margin-bottom: 60px;
+        .search {
+            width: 280px;
+            max-height: 450px;
+            overflow-y: scroll;
+            background: white;
+            z-index: 10;
+            position: relative;
+            padding: 10px 0;
+            border: 1px solid #CCCCCC;
+            left: 92px;
+            top: 41px;
+            &>div {
+                height: 28px;
+                width: 100%;
+                position: relative;
+                cursor: pointer;
+                p {
+                    font-family: MicrosoftYaHei;
+                    font-size: 14px;
+                    color: #333333;
+                    letter-spacing: 0;
+                    text-align: left;
+                    position: absolute;
+                    line-height: 28px;
+                }
+                p:first-child {
+                    left: 20px;
+                }
+                p:last-child {
+                    right: 20px;
+                }
+            }
+            &>div:hover {
+                background: #EFEFEF;
+            }
+        }
+        .p1 {
+            font-family: MicrosoftYaHei;
+            font-size: 18px;
+            line-height: 40px;
+            color: #333333;
+            letter-spacing: 0;
+            position: absolute;
+            left: 0;
+        }
+        .p2 {
+            font-family: MicrosoftYaHei;
+            font-size: 18px;
+            color: #FF5757;
+            letter-spacing: 0;
+            line-height: 40px;
+            position: absolute;
+            left: 433px;
+        }
+        .img1 {
+            position: absolute;
+            left: 390px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            text-align: left;
+        }
+        .img2 {
+            color: black;
+            position: relative;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            text-align: left;
+            top: 3px;
+            left: 15px;
+        }
+        input {
+            width: 260px;
+            height: 40px;
+            position: absolute;
+            left: 92px;
+            padding-left: 20px;
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #333333;
+            letter-spacing: 0;
+            text-align: left;
+            border: 1px solid #CCCCCC;
+        }
+        input::-ms-input-placeholder {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #CCCCCC;
+            letter-spacing: 0;
+        }
+        input::-moz-input-placeholder {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #CCCCCC;
+            letter-spacing: 0;
+        }
+        input::-o-input-placeholder {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #CCCCCC;
+            letter-spacing: 0;
+        }
+        input::-webkit-input-placeholder {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #CCCCCC;
+            letter-spacing: 0;
+        }
+        .float_wrap {
+            margin-left: 92px;
+            .in_div {
+                float: left;
+                width: 100px;
+                height: 40px;
+                border: 1px solid #3AA0F6;
+                margin-right: 20px;
+                margin-bottom: 20px;
+                cursor: pointer;
+                p {
+                    font-family: MicrosoftYaHei;
+                    font-size: 14px;
+                    color: #3AA0F6;
+                    letter-spacing: 0;
+                    text-align: left;
+                    line-height: 40px;
+                    text-align: center;
+                }
+            }
+            .active {
+                background: #3AA0F6;
+                p {
+                    color: #FFFFFF;
+                }
+            }
+        }
+        .float_wrap2 {
+            padding-top: 70px;
+        }
+        .p3 {
+            font-family: MicrosoftYaHei;
+            font-size: 18px;
+            color: #333333;
+            letter-spacing: 0;
+            line-height: 40px;
+            position: absolute;
+            left: 385px;
+        }
+        .img3 {
+            position: relative;
+            top: 10px;
+        }
+        .img4 {
+            position: relative;
+            top: 10px;
+            left: -30px;
+            cursor: pointer;
+            text-align: left;
+        }
+    }
+    .but1 {
+        width: 300px;
+        height: 40px;
+        display: block;
+        border-radius: 0;
+        margin: 0 auto;
+        margin-top: 220px;
+        position: relative;
+        left: -50px;
+    }
+}
+
+.box-card {
+    .el-dialog {
+        width: 500px;
+    }
+    .el-dialog__body {
+        text-align: center;
+    }
+    text-align: center;
+    .table1 {
+        width: 100%;
+        tr {
+            td {
+                font-family: PingFangSC-Regular;
+                font-size: 1.25rem;
+                color: #999999;
+                letter-spacing: 0;
+                text-align: left;
+                height: 3.5rem;
+            }
+            td:nth-child(2) {
+                color: #333333;
+                text-align: right;
+            }
+        }
+    }
+    .table2 {
+        width: 100%;
+        text-align: center;
+        border-spacing: 0;
+        border-collapse: collapse;
+        td {
+            font-family: PingFangSC-Regular;
+            font-size: 1.15rem;
+            color: #999999;
+            letter-spacing: 0;
+            height: 2.3rem;
+            border: 1px solid #333333;
+        }
+    }
+    .font_red {
+        td {
+            color: #DF3F43!important;
+        }
+    }
+    .font_green {
+        td {
+            color: #19B03F!important;
+        }
+    }
+    a {
+        color: blue;
+        cursor: pointer;
+    }
+    .but2 {
+        width: 300px;
+        height: 40px;
+    }
+}

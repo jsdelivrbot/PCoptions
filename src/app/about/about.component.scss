@@ -1,0 +1,31 @@
+.about_cont {
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    text-align: center;
+    position: relative;
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    &>div {
+        width: 100%;
+        height: 130px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        h3 {
+            font-family: MicrosoftYaHei-Bold;
+            font-size: 36px;
+            color: #FFFFFF;
+            padding-bottom: 40px;
+        }
+        p {
+            font-family: MicrosoftYaHei;
+            font-size: 24px;
+            color: #FFFFFF;
+        }
+    }
+}

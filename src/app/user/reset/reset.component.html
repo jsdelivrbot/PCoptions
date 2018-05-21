@@ -1,0 +1,58 @@
+<div class='reset_container'>
+    <p>重置登录密码</p>
+    <div class='step'>
+        <div>
+            <div class='active'>
+                <p>1</p>
+            </div>
+            <p>确认账号</p>
+        </div>
+        <div [ngClass]="{'active':step!=1}"></div>
+        <div>
+            <div [ngClass]="{'active':step!=1}">
+                <p>2</p>
+            </div>
+            <p>重置密码</p>
+        </div>
+        <div [ngClass]="{'active':step==3}"></div>
+        <div>
+            <div [ngClass]="{'active':step==3}">
+                <p>3</p>
+            </div>
+            <p>完成</p>
+        </div>
+    </div>
+
+    <div class='form_wrap1' *ngIf='step==1'>
+        <form [formGroup]="verifyForm">
+            <input type="text" formControlName="account" placeholder="请输入手机号">
+            <input type="text" formControlName="verify" placeholder="验证码">
+            <p class='p1'>手机号</p>
+            <p class='p2'>验证码</p>
+            <el-icon class='icon1' *ngIf="verifyForm.controls.account.valid && verifyForm.controls.account.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+            <el-icon class='icon1' *ngIf="!verifyForm.controls.account.valid && verifyForm.controls.account.dirty" name="circle-close" style="color:red;"></el-icon>
+            <el-icon class='icon2' *ngIf="verifyForm.controls.verify.valid && verifyForm.controls.verify.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+            <el-icon class='icon2' *ngIf="!verifyForm.controls.verify.valid && verifyForm.controls.verify.dirty" name="circle-close" style="color:red;"></el-icon>
+            <el-button class='p3' type="primary" (click)="getVerifyCode(verifyForm.controls.account.value);$event.preventDefault();$event.stopPropagation();" [elDisabled]="!verifyForm.controls.account.valid||submitstate">{{verifystate}}</el-button>
+            <el-button type="primary" (click)="nextstep(verifyForm.value);$event.preventDefault();$event.stopPropagation();" class='p4' [elDisabled]="!verifyForm.valid||submitted">下一步</el-button>
+        </form>
+    </div>
+    <div class='form_wrap1' *ngIf='step==2'>
+        <form [formGroup]="passwordForm" (ngSubmit)="resetPassword(passwordForm.value)">
+            <input formControlName="password" type="password" placeholder="请设置8-20位字母加数字密码">
+            <input formControlName="confirmPassword" type="password" placeholder="请再次输入密码">
+            <p class='p1'>新密码</p>
+            <p class='p2'>确认密码</p>
+            <el-icon class='icon1' *ngIf="passwordForm.controls.password.valid && passwordForm.controls.password.dirty" name="circle-check" style="color:#51C332;"></el-icon>
+            <el-icon class='icon1' *ngIf="!passwordForm.controls.password.valid && passwordForm.controls.password.dirty" name="circle-close" style="color:red;"></el-icon>
+            <el-icon class='icon2' *ngIf="passwordForm.controls.confirmPassword.valid && passwordForm.controls.confirmPassword.dirty&&passwordForm.controls.password.value==passwordForm.controls.confirmPassword.value" name="circle-check" style="color:#51C332;"></el-icon>
+            <el-icon class='icon2' *ngIf="(!passwordForm.controls.confirmPassword.valid||passwordForm.controls.password.value!=passwordForm.controls.confirmPassword.value)&&passwordForm.controls.confirmPassword.dirty" name="circle-close" style="color:red;"></el-icon>
+            <el-button type="primary" class='p5' (click)="resetPassword(passwordForm.value)" [elDisabled]="!passwordForm.valid||submitted||passwordForm.controls.password.value!=passwordForm.controls.confirmPassword.value">确定</el-button>
+        </form>
+    </div>
+    <div class='form_wrap1 form_wrap2' *ngIf='step==3'>
+        <img src="assets/img/login/my_icon_succeed.png"><br><br>
+        <h4><strong>重置密码成功</strong></h4><br><br>
+        <el-button type="primary" class='p5' routerLink='/login'>重新登录</el-button>
+    </div>
+</div>
